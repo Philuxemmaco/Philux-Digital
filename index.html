@@ -1,0 +1,537 @@
+<!-- Save this file as index.html and put philux_logo.png in the same folder -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Philux Digital — Growth • Leads • Closers</title>
+  <meta name="description" content="Philux Digital — Lead generation, cold outreach, CRM management and sales closing. Book a strategy call.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #F5F5F0;
+      --text: #111216;
+      --muted: #6b7280;
+      /* colors inspired by your logo: blue, green, dark */
+      --primary-blue: #0b76d1;
+      --primary-green: #2da34a;
+      --dark: #111216;
+      --accent: linear-gradient(90deg,var(--primary-blue),var(--primary-green));
+      --radius: 12px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:28px;}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:rgba(255,255,255,0.6);border-bottom:1px solid rgba(17,18,22,0.04);z-index:40}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:48px;width:auto;display:block}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:0.4px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--dark);text-decoration:none;font-weight:600}
+    .cta{background:var(--primary-blue);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(11,118,209,0.12)}
+    .cta:hover{transform:translateY(-2px);transition:all .18s ease}
+    .hamburger{display:none;border:0;background:transparent;font-size:24px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 0}
+    .hero h2{font-size:40px;margin:0 0 12px;font-weight:800;line-height:1.02;letter-spacing:-0.6px}
+    .hero p{margin:0 0 20px;color:var(--muted);font-size:16px}
+    .hero .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--primary-blue);color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-block}
+    .btn-outline{background:transparent;border:2px solid rgba(17,18,22,0.06);padding:12px 18px;border-radius:12px;text-decoration:none;color:var(--dark);font-weight:700}
+    .hero-card{background:linear-gradient(180deg,rgba(11,118,209,0.5),rgba(45,163,74,0.2));padding:18px;border-radius:16px;box-shadow:0 8px 30px rgba(6,9,12,0.04)}
+    .stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat{background:white;border-radius:12px;padding:12px;min-width:120px;text-align:center;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .stat strong{display:block;font-size:20px}
+
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid rgba(17,18,22,0.03)}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+    .section-head h3{margin:0;font-size:20px;font-weight:800}
+    .grid{display:grid;gap:18px}
+    .services-grid{grid-template-columns:repeat(3,1fr)}
+    .card{background:white;border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(12,18,27,0.04)}
+    .service-icon{height:44px;width:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-right:12px}
+
+    /* Testimonials */
+    .testimonials{display:flex;gap:16px;align-items:center}
+    .testimonial{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(11,118,209,0.02), rgba(45,163,74,0.02));min-height:120px}
+
+    /* Schedule */
+    .calendar-embed{height:560px;border-radius:12px;border:1px solid rgba(17,18,22,0.06);overflow:hidden}
+
+    /* Blog */
+    .blog-card{display:flex;flex-direction:column;gap:12px}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr 380px}
+    form input, form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(17,18,22,0.07);font-size:15px}
+    .form-row{display:flex;gap:12px}
+    .submit{background:var(--primary-green);color:white;padding:12px 16px;border-radius:10px;border:0;font-weight:700}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+    .socials a{margin-right:10px;text-decoration:none;color:var(--dark);font-weight:700}
+
+    /* Responsiveness */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:20px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      nav{display:none}
+      .hamburger{display:block}
+    }
+    @media (max-width:620px){
+      .services-grid{grid-template-columns:1fr}
+      .stat{min-width:100px}
+      .brand img{height:40px}
+      .hero h2{font-size:28px}
+      .hero p{font-size:15px}
+    }
+
+    /* small interactions */
+    a:focus{outline:3px solid rgba(11,118,209,0.12);outline-offset:2px}
+    .hidden{display:none}
+
+    a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="https://i.postimg.cc/PJb2j6nz/philux-logo.png" alt="Philux Digital logo" loading="eager" />
+        <h1>Philux Digital</h1>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta" href="#schedule">Book a Call</a>
+        <button class="hamburger" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="container hidden" style="padding-bottom:12px">
+      <nav style="display:flex;flex-direction:column;gap:12px">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+      <div>
+        <h2 id="hero-heading">Driving growth with bold outreach, precise funnels, and expert closing.</h2>
+        <p>Philux Digital helps businesses generate qualified leads, convert more deals, and scale through smart outreach, CRM optimization, and proven sales strategies.</p>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="#schedule">Book a Strategy Call</a>
+          <a class="btn-outline" href="#services">See Services</a>
+        </div>
+
+        <div style="margin-top:22px" class="stats">
+          <div class="stat"><strong>+320%</strong><span style="color:var(--muted)">Qualified lead increase (avg)</span></div>
+          <div class="stat"><strong>1.8x</strong><span style="color:var(--muted)">Avg close rate uplift</span></div>
+          <div class="stat"><strong>40+</strong><span style="color:var(--muted)">Campaigns launched</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-hidden="false">
+        <h4 style="margin:0 0 12px">Ready to scale?</h4>
+        <p style="margin:0 0 12px;color:">We combine targeted cold outreach, email sequences, and CRM automation to create predictable pipelines.</p>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn-primary" href="#schedule">Schedule Consultation</a>
+          <a style="text-decoration:none;font-weight:700;color:var(--dark)" href="#contact">Contact</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-head">
+      <div class="section-head">
+        <h3 id="about-head">About Philux Digital</h3>
+        <div style="color:var(--muted)">Strength • Movement • Results</div>
+      </div>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <p style="color:var(--muted);font-size:16px;margin-top:0">
+            Philux Digital is a results-driven growth partner that specializes in lead generation, business development, and sales closing. We believe in measurable outcomes — smart outreach, stacked with automation and human follow-up — to create predictable revenue channels for ambitious companies.
+          </p>
+          <ul style="margin-top:12px;color:var(--muted)">
+            <li>Data-first lead generation</li>
+            <li>High-volume cold outreach with personalization</li>
+            <li>CRM optimization & pipeline engineering</li>
+            <li>Performance-focused closing and deal acceleration</li>
+          </ul>
+        </div>
+        <div style="width:320px" aria-hidden="true">
+          <!-- Decorative visual inspired by your logo lines -->
+          <svg viewBox="0 0 400 260" width="100%" height="100%" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#0b76d1"/>
+                <stop offset="1" stop-color="#2da34a"/>
+              </linearGradient>
+            </defs>
+            <rect rx="16" width="100%" height="100%" fill="url(#g)" opacity="0.06"/>
+            <g transform="translate(20,20)" fill="none" stroke="#0b76d1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 140 C70 60, 150 200, 240 120" stroke="url(#g)"/>
+              <circle cx="240" cy="120" r="4" fill="#2da34a"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-head">
+      <div class="section-head">
+        <h3 id="services-head">Services</h3>
+        <div style="color:var(--muted)">End-to-end execution — outreach to close.</div>
+      </div>
+
+      <div class="grid services-grid">
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(11,118,209,0.08);color:var(--primary-blue)">SL</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">Sales Closer</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Professional closing support, call coaching, call handling and deal acceleration.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(45,163,74,0.06);color:var(--primary-green)">BD</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">Business Development</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Market mapping, channel partner outreach, strategic partnerships.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(11,118,209,0.06);color:var(--primary-blue)">LG</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">Lead Generation</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Targeted lists, multi-channel prospecting and appointment setting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(45,163,74,0.06);color:var(--primary-green)">CO</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">Cold Caller & Email Outreach</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Sequences, A/B tests, and scripts that convert.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(11,118,209,0.06);color:var(--primary-blue)">CRM</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">CRM Management</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Pipeline design, automation, integrations & reporting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center">
+            <div class="service-icon" style="background:rgba(45,163,74,0.06);color:var(--primary-green)">GTM</div>
+            <div>
+              <h4 style="margin:0;font-size:16px">Go-To-Market Strategist</h4>
+              <p style="margin:6px 0 0;color:var(--muted)">Launch plans, messaging, and channel prioritization.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" aria-labelledby="testi-head">
+      <div class="section-head">
+        <h3 id="testi-head">Testimonials</h3>
+        <div style="color:var(--muted)">What clients say about Philux Digital</div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:320px" class="testimonial" id="testiBox">
+          <p style="margin:0 0 12px;font-weight:700">"Philux Digital helped us double our qualified leads in 3 months — and improved close rates by 60%."</p>
+          <p style="margin:0;color:var(--muted)">— Sarah L., VP Growth</p>
+        </div>
+
+        <div style="flex:1;min-width:320px" class="testimonial hidden" id="testiBox2">
+          <p style="margin:0 0 12px;font-weight:700">"Their outreach sequences are next level — personalized, fast, and measurable."</p>
+          <p style="margin:0;color:var(--muted)">— Jason M., Founder</p>
+        </div>
+
+        <div style="flex:1;min-width:320px" class="testimonial hidden" id="testiBox3">
+          <p style="margin:0 0 12px;font-weight:700">"We regained control of our CRM and turned it into a real revenue engine."</p>
+          <p style="margin:0;color:var(--muted)">— Anna K., Head of Sales</p>
+        </div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button id="prevTesti" class="btn-outline" aria-label="Previous testimonial">Prev</button>
+        <button id="nextTesti" class="btn-primary" aria-label="Next testimonial" style="background:var(--primary-green)">Next</button>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="schedule" aria-labelledby="schedule-head">
+      <div class="section-head">
+        <h3 id="schedule-head">Schedule</h3>
+        <div style="color:var(--muted)">Pick a time for a free strategy call</div>
+      </div>
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <div style="flex:1;min-width:320px">
+          <p style="color:var(--muted)"><b>Use the scheduler to book a 30-minute consultation.</b></p>
+          <ul style="color:var(--muted)">
+            <li>Availability: Mon–Fri, 10am–4pm (US time zones)</li>
+            <li>Consultation length: 30 minutes</li>
+          </ul>
+        </div>
+        <div style="flex:0 0 520px">
+          <!-- Replace the src below with your Calendly embed or other scheduler share link -->
+          <div class="calendar-embed" aria-hidden="false">
+            <iframe src="about:blank" id="calFrame" style="width:100%;height:100%;border:0" title="Booking calendar (replace with Calendly or scheduler)"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" aria-labelledby="blog-head">
+      <div class="section-head">
+        <h3 id="blog-head">Insights & Blog</h3>
+        <div style="color:var(--muted)">Recent posts on outreach, sales, and lead generation</div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <article class="card blog-card">
+          <h4 style="margin:0">How to Build a 7-Day Outreach Sequence</h4>
+          <p style="margin:0;color:var(--muted)">A practical playbook for sequence timing, personalization, and follow-up.</p>
+          <a style="margin-top:auto;text-decoration:none;font-weight:700" href="#">Read →</a>
+        </article>
+
+        <article class="card blog-card">
+          <h4 style="margin:0">Optimizing CRM for High-Velocity Sales</h4>
+          <p style="margin:0;color:var(--muted)">Automation tips, funnel hygiene, and reporting that actually helps close more deals.</p>
+          <a style="margin-top:auto;text-decoration:none;font-weight:700" href="#">Read →</a>
+        </article>
+
+        <article class="card blog-card">
+          <h4 style="margin:0">Cold Calling That Converts</h4>
+          <p style="margin:0;color:var(--muted)">Script frameworks and objection handling that won’t sound robotic.</p>
+          <a style="margin-top:auto;text-decoration:none;font-weight:700" href="#">Read →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-head">
+      <div class="section-head">
+        <h3 id="contact-head">Contact</h3>
+        <div style="color:var(--muted)">Let's talk — United States • philux21@gmail.com • +1 (405) 345-5545</div>
+      </div>
+
+      <div class="grid contact-grid" style="gap:18px">
+        <div>
+          <!-- Note: replace action with your Formspree endpoint or server-side endpoint -->
+          <!-- Example Formspree usage: action="https://formspree.io/f/{your-id}" method="POST" -->
+          <form id="contactForm" action="https://formspree.io/f/xblzyqno" method="POST" onsubmit="return handleFormSubmit(event)">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Your email" required />
+            </div>
+            <div style="margin-top:12px">
+              <input type="text" name="company" placeholder="Company (optional)" />
+            </div>
+            <div style="margin-top:12px">
+              <textarea name="message" rows="6" placeholder="How can Philux Digital help you?" required></textarea>
+            </div>
+
+            <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+              <button class="submit" type="submit">Send Message</button>
+              <a href="mailto:philux21@gmail.com" style="text-decoration:none;color:var(--muted)">Or email: philux21@gmail.com</a>
+            </div>
+
+            <input type="hidden" name="_subject" value="New contact from website">
+          </form>
+          <div id="formMsg" style="margin-top:12px;color:var(--muted);display:none"></div>
+        </div>
+
+        <aside style="min-width:260px">
+          <div class="card">
+            <h4 style="margin:0 0 8px">Find us</h4>
+            <p style="margin:0;color:var(--muted)">Location: United States</p>
+            <div style="margin-top:12px">
+              <strong>Email</strong><br />
+              <a href="mailto:philux21@gmail.com">philux21@gmail.com</a>
+            </div>
+            <div style="margin-top:12px">
+              <strong>Phone</strong><br />
+              <a href="tel:+14053455545">+1 (405) 345-5545</a>
+            </div>
+            <div style="margin-top:14px">
+              <strong>Social</strong>
+              <div class="socials" style="margin-top:8px">
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>&copy; <span id="year"></span> Philux Digital — All rights reserved.</div>
+        <div style="color:var(--muted)">Built for speed, clarity & conversions.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // basic interactions: mobile menu, smooth scroll, testimonial carousel, form handler
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // smooth scrolling for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+          // close mobile menu if open
+          if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        }
+      })
+    });
+
+    // simple testimonial carousel
+    const testiEls = [document.getElementById('testiBox'), document.getElementById('testiBox2'), document.getElementById('testiBox3')];
+    let testiIndex = 0;
+    function showTesti(i){
+      testiEls.forEach((el, idx)=> {
+        if(!el) return;
+        el.classList.toggle('hidden', idx !== i);
+      })
+    }
+    document.getElementById('nextTesti').addEventListener('click', ()=>{ testiIndex=(testiIndex+1)%testiEls.length; showTesti(testiIndex) });
+    document.getElementById('prevTesti').addEventListener('click', ()=>{ testiIndex=(testiIndex-1+testiEls.length)%testiEls.length; showTesti(testiIndex) });
+    // auto rotate
+    setInterval(()=>{ testiIndex=(testiIndex+1)%testiEls.length; showTesti(testiIndex) }, 7000);
+
+    // placeholder: load Calendly or schedule URL into iframe if provided
+    // Replace the string below with your Calendly share URL, e.g. "https://calendly.com/yourname/30min"
+    const schedulerUrl = "https://calendly.com/philux21/30min"; // <-- PUT your scheduler URL here
+    const calFrame = document.getElementById('calFrame');
+    if(schedulerUrl && schedulerUrl.trim()){
+      calFrame.src = schedulerUrl;
+    } else {
+      // default helpful placeholder content
+      calFrame.srcdoc = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-family:Inter,sans-serif;color:#6b7280">Add your Calendly or scheduler share URL to the <code>schedulerUrl</code> variable in the HTML.</div>';
+    }
+
+    // Contact form basic handler (Formspree recommended)
+    function handleFormSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      const data = new FormData(form);
+
+      // If you configured Formspree action in the form tag, we can use fetch to POST to that endpoint:
+      const action = form.getAttribute('action');
+      if(action && action.includes('formspree.io')){
+        fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' },
+        }).then(res=>{
+          if(res.ok){
+            form.reset();
+            showFormMessage('Thanks! Your message was sent. We will respond shortly.');
+          } else {
+            showFormMessage('There was a problem sending your message. Please email philux21@gmail.com');
+          }
+        }).catch(err=>{
+          showFormMessage('Network error — please email philux21@gmail.com');
+        }).finally(()=>{
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
+      } else {
+        // fallback: open mailto (client) with subject and body
+        const name = data.get('name') || '';
+        const email = data.get('email') || '';
+        const company = data.get('company') || '';
+        const message = data.get('message') || '';
+        const mailto = `mailto:philux21@gmail.com?subject=${encodeURIComponent('Website contact from '+name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`)}`;
+        window.location.href = mailto;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+      return false;
+    }
+    function showFormMessage(msg){
+      const el = document.getElementById('formMsg');
+      el.style.display = 'block';
+      el.textContent = msg;
+      setTimeout(()=> el.style.display='none', 8000);
+    }
+
+  </script>
+</body>
+</html>
